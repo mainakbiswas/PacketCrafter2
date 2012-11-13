@@ -10,7 +10,7 @@ public class IcmpPacket extends Packet {
 	/**
 	 * construct a packet 
 	 * @param iph IPv4 Header
-	 * @param icmph Udp header
+	 * @param icmph ICMP header
 	 * @param data data part
 	 */
 	public IcmpPacket(IPHeader iph, ICMPHeader icmph, Data data){
@@ -18,7 +18,7 @@ public class IcmpPacket extends Packet {
 		icmphdr = icmph;
 	}
 	
-	public ICMPHeader getUdpHeader(){
+	public ICMPHeader getIcmpHeader(){
 		return icmphdr;
 	}
 }

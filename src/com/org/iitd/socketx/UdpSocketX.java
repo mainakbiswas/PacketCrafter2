@@ -22,9 +22,9 @@ public class UdpSocketX {
 		preset = false;
 	}
 	/**
-	 * Create a UDP socket with preset values.
-	 * @param iph
-	 * @param udph
+	 * Create a UDP socket with preset values. Can be used to send raw packets as well
+	 * @param iph The IP header 
+	 * @param udph The UDP header
 	 */
 	public UdpSocketX(IPHeader iph, UDPHeader udph){
 		preset = true;
@@ -81,7 +81,9 @@ public class UdpSocketX {
 	}
 	
 	/**
-	 * To be called only when initialised with the predefined values,blocking call
+	 * To be called only when initialised with the predefined values. 
+	 * Used to listen for an expected reply packet is response to the previously sent packet.
+	 * blocking call, cannot be called from main thread in android, see asynctask for more details
 	 * @return a udp packet with corresponding headers
 	 */
 	public UdpPacket getReplyUdpPacket(){
