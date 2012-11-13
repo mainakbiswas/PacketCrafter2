@@ -41,6 +41,10 @@ public class UdpSocketX {
 	 * @return send status
 	 */
 	public int sendPacket(UdpPacket packet){
+		if(!preset){
+			iphdr = packet.getIPHeader();
+			udphdr = packet.getUdpHeader();
+		}
 		return send_udp_packet(packet.getIPHeader().getTos(),
 				packet.getIPHeader().getId(),
 				packet.getIPHeader().getFragOff(),
