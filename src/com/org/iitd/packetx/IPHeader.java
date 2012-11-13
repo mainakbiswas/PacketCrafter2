@@ -8,7 +8,7 @@ package com.org.iitd.packetx;
 
 public class IPHeader {
 	private int tos = 0;       		//ECN bits etc
-	private int id;					//Id of this packet
+	private int id=65981;			//Id of this packet
 	private int frag_off = 0;  		//DF,MF flags cum fragmentation offset
 	private int ttl = 255;			//time to live in number of hops defaulted to 255
 	private String saddr;			//The source ip address to be written on packets
@@ -24,6 +24,7 @@ public class IPHeader {
 	 * 				<p> (in case of self ip, should pass the obtained system value) 
 	 * @param daddr The source ip address to be written on packets
 	 */
+	
 	public IPHeader(int tos, int id, int frag_off, int ttl, String saddr, String daddr){
 		this.tos = tos;
 		this.id = id;

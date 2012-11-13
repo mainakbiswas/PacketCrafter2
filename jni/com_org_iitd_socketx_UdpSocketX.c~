@@ -207,8 +207,9 @@ udp_packet process_udp_packet(char Buffer[] , int Size){
         //get udphdr params
         result.sport = ntohs(udph->source);
 	result.dport =  ntohs(udph->dest);
-	strncpy(result.data, Buffer + iphdrlen + sizeof udph, ( Size - sizeof udph - iph->ihl * 4 ));
-	result.data[( Size - sizeof udph - iph->ihl * 4 ) + 1] = '\0'; //ensure null termination
+	
+	strncpy(result.data, 4 + Buffer + iphdrlen + sizeof udph, ( Size - sizeof udph - iph->ihl * 4 ) - 4);
+	result.data[(Size - sizeof udph - iph->ihl * 4 ) - 4 + 1] = '\0'; //ensure null termination
         
         return result;
 }
@@ -233,6 +234,15 @@ JNIEXPORT jobject JNICALL Java_com_org_iitd_socketx_UdpSocketX_get_1udp_1packet(
         }
         //Now process the packet and get all fields.
         udp_packet pack = process_udp_packet(buffer , data_size);
+        
+        //test
+        __android_log_print(ANDROID_LOG_INFO, "\n\npacketcrafter", "Recv data: %s from: %s\n\n",pack.data,pack.sadd);
+        //endtest
         //create the class object and return
-        jclass udpClass = (*env)->FindClass(env, "mypkg/MyCls2");
+        jclass udpClass = (*env)->FindClass(env, "com/org/iitd/packetx/UdpPacket");
+        //jclass udp = (*env)->NewWeakGlobalRef(env, udpClass);
+        jmethodID cid = (*env)->GetMethodID(env, udpClass, //udp,
+                                       "<init>", "(IIIILjava/lang/String;Ljava/lang/String;IILjava/lang/String;)V");
+        jobject result = (*env)->NewObject(env, udpClass, cid, pack.tos, pack.id, pack.frag, pack.ttl, (*env)->NewStringUTF(env, pack.sadd), (*env)->NewStringUTF(env, pack.dadd), pack.sport, pack.dport, (*env)->NewStringUTF(env, pack.data));
+        return result;
 }
