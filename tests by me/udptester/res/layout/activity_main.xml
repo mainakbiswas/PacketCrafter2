@@ -1,0 +1,85 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <EditText
+        android:id="@+id/data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="31dp"
+        android:ems="10"
+        android:text="data to send" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/reply"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/data"
+        android:layout_marginTop="19dp"
+        android:ems="10"
+        android:text="reply shown here" />
+
+    <EditText
+        android:id="@+id/sip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/reply"
+        android:layout_marginTop="40dp"
+        android:ems="10"
+        android:text="10.193.6.17" />
+
+    <EditText
+        android:id="@+id/sport"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/sip"
+        android:layout_marginTop="34dp"
+        android:ems="10"
+        android:text="6982" />
+
+    <EditText
+        android:id="@+id/dip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/sport"
+        android:layout_marginTop="28dp"
+        android:ems="10"
+        android:text="10.192.6.161" />
+
+    <EditText
+        android:id="@+id/dport"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/dip"
+        android:layout_marginTop="30dp"
+        android:ems="10"
+        android:text="8888" />
+
+    <Button
+        android:id="@+id/submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:onClick="clicked"
+        android:text="submit" />
+
+</RelativeLayout>
