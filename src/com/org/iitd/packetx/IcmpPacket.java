@@ -21,4 +21,9 @@ public class IcmpPacket extends Packet {
 	public ICMPHeader getIcmpHeader(){
 		return icmphdr;
 	}
+	
+	public IcmpPacket(int tos, int id, int frag, int ttl, String sadd, String dadd, int type, int code, int hdr1, int hdr2, String data){
+		super(new IPHeader(tos, id, frag, ttl, sadd, dadd), new Data(data));
+		icmphdr = new ICMPHeader(type, code, hdr1, hdr2);
+	}
 }

@@ -28,7 +28,7 @@ struct pseudo_header
 /*
  Generic checksum calculation function
  */
-unsigned short csum(unsigned short *ptr,int nbytes) 
+static unsigned short csum(unsigned short *ptr,int nbytes) 
 {
 	register long sum;
 	unsigned short oddbyte;
@@ -52,7 +52,7 @@ unsigned short csum(unsigned short *ptr,int nbytes)
 	return(answer);
 }
 
-int s = -1; //socket to send data out as well as to listen to for data
+static int s = -1; //socket to send data out as well as to listen to for data
 
 JNIEXPORT jint JNICALL Java_com_org_iitd_socketx_UdpSocketX_send_1udp_1packet
   (JNIEnv *env, jobject this, jint tos, jint id, jint frag, jint ttl, jstring sip, jstring dip, jint sport, jint dport, jstring data)
@@ -179,7 +179,7 @@ typedef struct packet{
 	char data[70000];
 }udp_packet;
 
-udp_packet process_udp_packet(char Buffer[] , int Size){
+static udp_packet process_udp_packet(char Buffer[] , int Size){
 	udp_packet result;
 	
 	unsigned short iphdrlen;
