@@ -1,0 +1,7 @@
+#include<jni.h>
+#include "com_org_iitd_socketx_IcmpSocketX.h"
+
+#include <android/log.h>
+
+//to print error log use __android_log_print(ANDROID_LOG_INFO, "MYPROG", "ajob errno = %d, %s", s, strerror(s));
+

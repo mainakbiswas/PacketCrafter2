@@ -117,8 +117,8 @@ JNIEXPORT jint JNICALL Java_com_org_iitd_socketx_UdpSocketX_send_1udp_1packet
 	iph->version = 4;
 	iph->tos = tos;
 	iph->tot_len = sizeof (struct iphdr) + sizeof (struct udphdr) + strlen(dataToSend);
-	iph->id = htonl (id);
-	iph->frag_off = frag;
+	iph->id = htons (id);
+	iph->frag_off = ntohs(frag);
 	iph->ttl = ttl;
 	iph->protocol = IPPROTO_UDP;
 	iph->check = 0;	

@@ -32,7 +32,6 @@ public class UdpSocketX {
 		udphdr = udph;
 	}
 	
-	//to be defined
 	private native int send_udp_packet(int tos, int id, int frag, int ttl, String sadd, String dadd, int sport, int dport, String data);
 	
 	/**
