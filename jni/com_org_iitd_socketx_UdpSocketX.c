@@ -230,7 +230,7 @@ JNIEXPORT jobject JNICALL Java_com_org_iitd_socketx_UdpSocketX_get_1udp_1packet(
         if(data_size <0 )
         {
         	__android_log_print(ANDROID_LOG_INFO, "packetcrafter", "Recvfrom error , failed to get packets\n");
-        	
+        	return (*env)->NewGlobalRef(env, NULL);
         }
         //Now process the packet and get all fields.
         udp_packet pack = process_udp_packet(buffer , data_size);

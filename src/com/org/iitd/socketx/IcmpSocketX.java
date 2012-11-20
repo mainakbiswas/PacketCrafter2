@@ -1,3 +1,8 @@
+/**
+ * This file describes the UDP socket structure
+ * @author Mainak Biswas
+ */
+ 
 package com.org.iitd.socketx;
 
 import com.org.iitd.packetx.Data;

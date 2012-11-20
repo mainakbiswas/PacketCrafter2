@@ -252,6 +252,6 @@ JNIEXPORT jobject JNICALL Java_com_org_iitd_socketx_IcmpSocketX_get_1icmp_1packe
         jclass icmpClass = (*env)->FindClass(env, "com/org/iitd/packetx/IcmpPacket");
         jmethodID cid = (*env)->GetMethodID(env, icmpClass, 
                                        "<init>", "(IIIILjava/lang/String;Ljava/lang/String;IIIILjava/lang/String;)V");
-        jobject result = (*env)->NewObject(env, udpClass, cid, pack.tos, pack.id, pack.frag, pack.ttl, (*env)->NewStringUTF(env, pack.sadd), (*env)->NewStringUTF(env, pack.dadd), pack.type, pack.code, pack.hdr1, pack.hdr2, (*env)->NewStringUTF(env, pack.data));
+        jobject result = (*env)->NewObject(env, icmpClass, cid, pack.tos, pack.id, pack.frag, pack.ttl, (*env)->NewStringUTF(env, pack.sadd), (*env)->NewStringUTF(env, pack.dadd), pack.type, pack.code, pack.hdr1, pack.hdr2, (*env)->NewStringUTF(env, pack.data));
         return result;
 }
